@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Course Portfolio</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgb(235, 222, 135);
+            color: black;
+        }
+        header {
+           
+            text-align: center;
+        }
+        .course {
+            text-align: center;
+            margin: 20px;
+            display: none; /* Hide all certificates initially */
+        }
+
+        .course img {
+            max-width: 40%;
+            height: auto;
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+       
+    </style>
+</head>
+<body>
+
+<h1>My Skills</h1>
+<ul>
+    <li><a href="Homepage.html">HOME</a></li>
+</ul>
+
+<div class="course">
+    <h2>Introduction to Python</h2>
+    <img src="C:\Users\mouni\Downloads\certificate5.jpg" alt="Certificate for Course Name 2">
+    <img src="https://www.google.com/search?q=articles&sca_esv=577607103&rlz=1C1RXQR_enIN1034IN1034&tbm=isch&sxsrf=AM9HkKkeyApCJEWOjDPExJKJlNW4GgD" alt="articles">
+</div>
+
+<div class="course">
+    <h2>Basics of Python</h2>
+    <img src="C:\Users\DELL\Downloads\3d8884d8-5682-4228-a786-d4dc78b9259a.jpg" alt="Certificate for Course Name 1">
+</div>
+
+<div class="course">
+    <h2>CSS</h2>
+    <img src="C:\Users\DELL\Downloads\f063a870-ec75-44e4-b04c-b431080dde33.jpg" alt="Certificate for Course Name 3">
+</div>
+
+<!-- Add more courses and certificates as needed -->
+
+<div class="controls">
+    <button onclick="showPreviousCertificate()">&#8592; Previous</button>
+    <button onclick="showNextCertificate()">Next &#8594;</button>
+</div>
+
+<script>
+    const certificates = document.querySelectorAll('.course');
+    let currentIndex = 0;
+
+    function showCertificate(index) {
+        if (index >= 0 && index < certificates.length) {
+            certificates[index].style.display = 'block';
+        }
+    }
+
+    function hideCertificate(index) {
+        if (index >= 0 && index < certificates.length) {
+            certificates[index].style.display = 'none';
+        }
+    }
+
+    function showNextCertificate() {
+        hideCertificate(currentIndex);
+        currentIndex = (currentIndex + 1) % certificates.length;
+        showCertificate(currentIndex);
+    }
+
+    function showPreviousCertificate() {
+        hideCertificate(currentIndex);
+        currentIndex = (currentIndex - 1 + certificates.length) % certificates.length;
+        showCertificate(currentIndex);
+    }
+
+    showCertificate(currentIndex);
+ 
+</script>
+
+</body>
+</html>
